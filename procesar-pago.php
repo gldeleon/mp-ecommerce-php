@@ -104,7 +104,7 @@ $preference->save();
                 </div>
                 <div class="col-md-8 order-md-1">
                     <h4 class="mb-3"></h4>
-                    <form class="needs-validation" action="/" method="post" novalidate="">
+                    <form class="needs-validation" action="/pago.php" method="post" novalidate="">
                         <div class="row">
                             <div class="jumbotron">
 
