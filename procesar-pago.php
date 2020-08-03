@@ -12,16 +12,15 @@ $cantidad = 1;
 
 
 // Agrega credenciales
-MercadoPago\SDK::setAccessToken('TEST-562013120781246-092114-0f2597ea4215ce1d3680a94d4a3daf96__LB_LA__-7586171');
+//MercadoPago\SDK::setAccessToken('TEST-562013120781246-092114-0f2597ea4215ce1d3680a94d4a3daf96__LB_LA__-7586171');
 MercadoPago\SDK::setIntegratorId('dev_24c65fb163bf11ea96500242ac130004');
-//MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe 921a3d-617633181');
+MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181');
 // Crea un objeto de preferencia
-$preference = new MercadoPago\Preference();
 // Crea un ítem en la preferencia
 $payer = new MercadoPago\Payer();
 $payer->name = "Lalo";
 $payer->surname = "Landa";
-$payer->email = "charles@hotmail.com";
+$payer->email = "test_user_58295862@testuser.com";
 $payer->date_created = "2018-06-02T12:58:41.425-04:00";
 $payer->phone = array(
     "area_code" => "52",
@@ -33,19 +32,26 @@ $payer->address = array(
     "street_number" => 1602,
     "zip_code" => "03940"
 );
-
+$preference = new MercadoPago\Preference();
 $item = new MercadoPago\Item();
+$url = "https://eduardo735-mp-commerce-php.herokuapp.com";
+$item->id = "1234";
 $item->title = $titulo;
 $item->quantity = $cantidad;
 $item->unit_price = $precio;
 $item->picture_url = $picture;
+$item->currency_id = "MXN";
 $preference->items = [$item];
-$preference->external_reference = "pruebamercadopago";
+//$preference->external_reference = "pruebamercadopago";
+$preference->external_reference = "gldeleon@live.com.mx";
+$preference->notification_url = "https://webhook.site/03ef117d-5477-422e-861a-a4b18a754c35";
+$preference->email = "gldeleon@live.com.mx";
 $preference->back_urls = array(
     "success" => "/success.php",
     "failure" => "/failure.php",
     "pending" => "/pending.php"
 );
+$preference->payer = $payer;
 $preference->auto_return = "approved";
 $preference->save();
 //var_dump($preference);
