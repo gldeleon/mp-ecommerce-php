@@ -34,7 +34,7 @@ $payer->address = array(
 );
 $preference = new MercadoPago\Preference();
 $item = new MercadoPago\Item();
-$url = "https://eduardo735-mp-commerce-php.herokuapp.com";
+$url = "https://gldeleon-mp-commerce-php.herokuapp.com";
 $item->id = "1234";
 $item->title = $titulo;
 $item->quantity = $cantidad;
@@ -44,7 +44,7 @@ $item->currency_id = "MXN";
 $preference->items = [$item];
 //$preference->external_reference = "pruebamercadopago";
 $preference->external_reference = "gldeleon@live.com.mx";
-$preference->notification_url = "https://webhook.site/03ef117d-5477-422e-861a-a4b18a754c35";
+$preference->notification_url = "https://gldeleon-mp-commerce-php.herokuapp.com/pago.php";
 $preference->email = "gldeleon@live.com.mx";
 $preference->back_urls = array(
     "success" => "/success.php",
@@ -78,6 +78,8 @@ $preference->save();
 
         <!-- Bootstrap core CSS -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://www.mercadopago.com/v2/security.js" view=""></script>
+
 
         <!-- Custom styles for this template -->
         <link href="form-validation.css" rel="stylesheet">
