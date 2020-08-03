@@ -7,13 +7,14 @@ require __DIR__ . '/vendor/autoload.php';
 $titulo = $_POST["titulo"];
 $precio = $_POST["precio"];
 $unidad = $_POST["unidad"];
+$picture = $_POST["picture"];
 $cantidad = 1;
 
 
 // Agrega credenciales
-//MercadoPago\SDK::setAccessToken('TEST-562013120781246-092114-0f2597ea4215ce1d3680a94d4a3daf96__LB_LA__-7586171');
+MercadoPago\SDK::setAccessToken('TEST-562013120781246-092114-0f2597ea4215ce1d3680a94d4a3daf96__LB_LA__-7586171');
 MercadoPago\SDK::setIntegratorId('dev_24c65fb163bf11ea96500242ac130004');
-MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe 921a3d-617633181');
+//MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe 921a3d-617633181');
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 // Crea un ítem en la preferencia
@@ -37,7 +38,9 @@ $item = new MercadoPago\Item();
 $item->title = $titulo;
 $item->quantity = $cantidad;
 $item->unit_price = $precio;
+$item->picture_url = $picture;
 $preference->items = [$item];
+$preference->external_reference = "pruebamercadopago";
 $preference->back_urls = array(
     "success" => "/success.php",
     "failure" => "/failure.php",

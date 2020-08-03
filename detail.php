@@ -135,6 +135,7 @@
                                             <input type="hidden" name="titulo" value="<?php echo $_POST['title'] ?>">
                                             <input type="hidden" name="precio" value="<?php echo $_POST['price'] ?>">
                                             <input type="hidden" name="unidad" value="<?php echo $_POST['unit'] ?>">
+                                            <input type="hidden" name="unidad" value="<?php echo $_POST['img'] ?>">
                                             <button type="submit" class="mercadopago-button" formmethod="post">Agregar al Carrito</button>
                                         </form>
                                     </div>
