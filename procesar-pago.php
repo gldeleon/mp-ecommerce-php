@@ -4,7 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 //require_once './vendor/autoload.php';
 /* recibimos los parametros */
 
-$titulo = $_POST["titulo"];
+$titulo = "Dispositivo móvil de Tienda e-commerce";
 $precio = $_POST["precio"];
 $unidad = $_POST["unidad"];
 $picture = $_POST["picture"];
@@ -50,6 +50,15 @@ $preference->back_urls = array(
     "success" => "/success.php",
     "failure" => "/failure.php",
     "pending" => "/pending.php"
+);
+$preference->payment_methods = array(
+    "excluded_payment_methods" => array(
+        array("id" => "amex")
+    ),
+    "excluded_payment_types" => array(
+        array("id" => "atm")
+    ),
+    "installments" => 6
 );
 $preference->payer = $payer;
 $preference->auto_return = "approved";
