@@ -4,7 +4,8 @@ require __DIR__ . '/vendor/autoload.php';
 //require_once './vendor/autoload.php';
 /* recibimos los parametros */
 
-$titulo = "Dispositivo móvil de Tienda e-commerce";
+$titulo = $_POST["titulo"];
+$descripcion = "Dispositivo móvil de Tienda e-commerce";
 $precio = $_POST["precio"];
 $unidad = $_POST["unidad"];
 $picture = $_POST["picture"];
@@ -42,7 +43,6 @@ $item->unit_price = $precio;
 $item->picture_url = $picture;
 $item->currency_id = "MXN";
 $preference->items = [$item];
-//$preference->external_reference = "pruebamercadopago";
 $preference->external_reference = "gldeleon@live.com.mx";
 $preference->notification_url = "https://gldeleon-mp-commerce-php.herokuapp.com/pago.php";
 $preference->email = "gldeleon@live.com.mx";

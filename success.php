@@ -1,5 +1,6 @@
 <?php
 echo "todo salio bien";
+var_dump($_POST);
 ?>
 <div class="jumbotron text-center">
     <h1 class="display-3">Muchas Gracias!</h1>
